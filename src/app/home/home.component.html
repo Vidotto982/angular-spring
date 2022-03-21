@@ -1,0 +1,48 @@
+<div class="container">
+<div class="container-home">
+  <div class=" mt-4 text-center">
+    <div>
+      <div>
+        <mat-card>
+          <mat-card-title>
+            <span > List of Persons</span>
+            <a  routerLink="addPerson" href="addPerson" class="btn btn-primary">
+              Add Person
+            </a>
+          </mat-card-title>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center ">
+    <div class=" person-ul-div">
+      <!--      AL HACER CLICK EN EDITAR QUE APAREZCA UN MODAL QUE LO COMPONENTE EDITAR  -->
+      <mat-card-content *ngFor="let person of personList">
+        <ul class="person-group  mt-2">
+          <mat-card>
+            <span>{{person.name}} {{person.lastname}} | {{person.country}}
+            </span>
+            <button mat-button  type="button" class=" btn-danger" (click)="deletePerson(person)">
+              <mat-icon color="error">
+                delete_outline
+              </mat-icon>
+            </button>
+            <button mat-button  type="button" class="" (click)="editPerson(person)">
+              <mat-icon color="primary">
+                mode_edit
+              </mat-icon>
+            </button>
+          </mat-card>
+        </ul>
+      </mat-card-content>
+    </div>
+  </div>
+  <div class="card mt-4 text-center">
+    <div class="card-body">
+      <div class="card-title">
+        <h5>Enter or modify a person</h5>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
