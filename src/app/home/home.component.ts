@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonService } from "../services/person-service.service";
 import { Observable } from "rxjs";
 import { Person } from "../model/person";
+import { AppRoutingModule } from "../app-routing.module"
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,36 +11,46 @@ import { Person } from "../model/person";
 export class HomeComponent implements OnInit {
   public personList: Array<any> = [];
   notFound = false;
+  routed = AppRoutingModule;
+
   constructor(
     private personService: PersonService,
-  ){
+  ) {
   }
+
   ngOnInit(): void {
     this.getPersons();
   }
-  getPersons(){
-    this.personService.getPersons().subscribe((resp:any)=>{
+
+  getPersons() {
+    this.personService.getPersons().subscribe((resp: any) => {
       this.personList = resp;
     })
   }
-  deletePerson(person: Person):void{
+
+  deletePerson(person: Person): void {
     console.log(person)
-    this.personService.deletePerson(person.id).subscribe((resp:any)=>{
-      this.getPersons();
+    this.personService.deletePerson(person.id).subscribe((resp: any) => {
+        this.getPersons();
       }
     );
 
   }
-  addPerson(person: any) {
-    this.personService.createPerson(person).subscribe();
-    this.personService.getPersons().subscribe();
-
-  }
-
-
-  editPerson(person: any) {
-    this.personService.editPerson(person.id).subscribe();
-    this.personService.getPersons().subscribe();
-
-  }
 }
+//   addPerson(person: any) {
+//     console.log("addperson")
+//     this.personService.addPerson({
+//       name: "Juan",
+//       lastname: "Perez",
+//       country: "Argelia",
+//     }).subscribe((resp:any )=>{
+//       this.getPersons()
+//     });
+//   }
+//
+//   editPerson(person: any) {
+//     this.personService.editPerson(person.id).subscribe((resp:any )=>{
+//     this.getPersons()
+//     });
+//   }
+// }

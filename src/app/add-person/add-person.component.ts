@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  { PersonService } from "../services/person-service.service";
 import  { Person } from "../model/person";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-add-person',
@@ -8,17 +9,21 @@ import  { Person } from "../model/person";
   styleUrls: ['./add-person.component.css']
 })
 export class AddPersonComponent implements OnInit {
-  private person: Person | undefined;
+  createdForm: FormGroup | any;
 
-  constructor(private personService: PersonService) {
-
-  }
+  constructor(private formBuilder: FormBuilder,
+              private personService: PersonService) {}
 
   ngOnInit() {
+    this.createdForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      lastname: ['', [Validators.required]],
+      country: ['', [Validators.required]
+      ]
+    })
   }
-  createPerson(person: Person):void{
-    this.personService.createPerson(person).subscribe();
-    this.personService.getPersons().subscribe();
 
+  onSubmit() {
+    this.personService.addPerson(this.createdForm.getRawValue());
   }
 }

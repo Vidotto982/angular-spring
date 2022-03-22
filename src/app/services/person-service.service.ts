@@ -31,16 +31,13 @@ export class PersonService {
     return this.http.delete(urlPerson);
   }
 
-  createPerson(person: any): Observable<any>{
+  addPerson(person: any): Observable<any>{
+    console.log(person);
     return this.http.post(this.url, person);
   }
 
   editPerson(person: any): Observable<any>{
     const urlPerson= `${this.url}/${person.id}`;
     return this.http.post(urlPerson, person.id);
-  }
-
-  addPerson(person: any) {
-
   }
 }

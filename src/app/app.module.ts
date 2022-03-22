@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddPersonComponent } from './add-person/add-person.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,10 @@ import { EditComponent } from './edit-person/edit/edit.component';
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { EditPersonComponent } from './edit-person/edit-person.component';
+import { RouterModule } from "@angular/router";
+
+
 
 @NgModule({
   declarations: [
@@ -21,18 +25,21 @@ import { MatButtonModule } from "@angular/material/button";
     HomeComponent,
     AddPersonComponent,
     EditComponent,
+    EditPersonComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    MatMenuModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        MatMenuModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        RouterModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

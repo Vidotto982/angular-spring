@@ -6,10 +6,8 @@ import { EditComponent } from "./edit-person/edit/edit.component";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: '**',pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component: HomeComponent},
   {path: 'addPerson', component: AddPersonComponent},
-  {path: 'editPerson', component: EditComponent},
 
 ];
 
