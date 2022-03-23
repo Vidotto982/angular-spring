@@ -1,19 +1,25 @@
 <div class="container">
   <div class="container-home">
+    <app-navbar></app-navbar>
     <div class=" mt-4 text-center">
       <div>
         <div>
           <mat-card>
             <mat-card-title>
-              <nav>
-                <span > List of Persons</span>
-                <nav class="navbar navbar-dark ">
-                  <a routerLink="/addPerson" class="btn btn-primary"> Add Person</a>
-                </nav>
-              </nav>
+              <span > List of Persons</span>
             </mat-card-title>
           </mat-card>
         </div>
+        <nav class="navbar navbar-dark btn-add ">
+          <div class="btn-add">
+            <a routerLink="/addPerson" class="btn btn-primary">
+              Add Person
+              <mat-icon>
+                trending_flat
+              </mat-icon>
+            </a>
+          </div>
+        </nav>
       </div>
     </div>
     <div class="row text-center ">
@@ -29,17 +35,22 @@
                   delete_outline
                 </mat-icon>
               </button>
-              <button mat-button  type="button" class="">
-                <mat-icon color="primary">
-                  mode_edit
-                </mat-icon>
+              <button mat-button  type="button" class="" routerLink="/editPerson">
+                <a routerLink="/editPerson" class="btn">
+                  <mat-icon color="primary">
+                    mode_edit
+                  </mat-icon>
+                </a>
+                  <!--(click)="editPersonSwitch()-->
+<!--                <div class="" *ngIf = "editSwitch == true">-->
+<!--                      <app-edit-person></app-edit-person>-->
+<!--                </div>-->
               </button>
             </mat-card>
           </ul>
         </mat-card-content>
       </div>
       <div class="formGroup">
-        <app-add-person></app-add-person>
       </div>
     </div>
   </div>

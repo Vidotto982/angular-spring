@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Person} from "../model/person";
@@ -14,6 +14,7 @@ export class PersonService {
   person: PersonService[] = [];
   constructor(private http: HttpClient){
   }
+  $editModal = new EventEmitter<any>();
 
   getPersons(){
     let header = new HttpHeaders().set('Type-content0','aplication/json')

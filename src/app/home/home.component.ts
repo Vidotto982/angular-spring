@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   public personList: Array<any> = [];
   notFound = false;
   routed = AppRoutingModule;
-
+  editSwitch : boolean | any;
   constructor(
     private personService: PersonService,
   ) {
@@ -20,8 +20,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPersons();
+    this.personService.$editModal.subscribe((valor)=>{this.editSwitch = valor});
   }
-
+  editPersonSwitch(){
+    this.editSwitch = true;
+  }
   getPersons() {
     this.personService.getPersons().subscribe((resp: any) => {
       this.personList = resp;
@@ -37,17 +40,6 @@ export class HomeComponent implements OnInit {
 
   }
 }
-//   addPerson(person: any) {
-//     console.log("addperson")
-//     this.personService.addPerson({
-//       name: "Juan",
-//       lastname: "Perez",
-//       country: "Argelia",
-//     }).subscribe((resp:any )=>{
-//       this.getPersons()
-//     });
-//   }
-//
 //   editPerson(person: any) {
 //     this.personService.editPerson(person.id).subscribe((resp:any )=>{
 //     this.getPersons()

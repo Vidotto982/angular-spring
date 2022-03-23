@@ -9,13 +9,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddPersonComponent } from './add-person/add-person.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EditComponent } from './edit-person/edit/edit.component';
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { RouterModule } from "@angular/router";
-
 
 
 @NgModule({
@@ -24,7 +22,6 @@ import { RouterModule } from "@angular/router";
     NavbarComponent,
     HomeComponent,
     AddPersonComponent,
-    EditComponent,
     EditPersonComponent,
   ],
     imports: [

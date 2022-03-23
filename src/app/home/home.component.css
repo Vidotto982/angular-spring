@@ -1,24 +1,22 @@
-
 .person-ul-div{
   display: flex;
   justify-content: center;
-
 }
 .person-li{
-  margin-top: 5px;
+  margin-top: 2%;
   cursor: pointer;
 }
 .person-li:hover {
  background-color: #5a9cbb;
 }
 .btn{
-  margin-left: 10px;
+  margin-left: 5%;
 }
 .btn-delete{
   background-color: red;
 }
 input{
-  margin-top: 5px;
+  margin-top: 2%;
 }
 .formPerson{
   display: flex;
@@ -29,4 +27,8 @@ input{
 }
 .label{
   text-decoration-color: white;
+}
+.btn-add{
+  justify-content: end;
+  text-align: center;
 }
