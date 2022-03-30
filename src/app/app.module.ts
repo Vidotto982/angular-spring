@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
-import { EditPersonComponent } from './edit-person/edit-person.component';
 import { RouterModule } from "@angular/router";
 import { MatDialogModule } from "@angular/material/dialog";
 
@@ -23,7 +22,6 @@ import { MatDialogModule } from "@angular/material/dialog";
     NavbarComponent,
     HomeComponent,
     AddPersonComponent,
-    EditPersonComponent,
   ],
     imports: [
         BrowserModule,
