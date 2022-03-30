@@ -35,16 +35,12 @@
                   delete_outline
                 </mat-icon>
               </button>
-              <button mat-button  type="button" class="" routerLink="/editPerson">
-                <a routerLink="/editPerson" class="btn">
+              <button mat-button  type="button" class="" (click)="editPerson(person)">
+                <a class="btn">
                   <mat-icon color="primary">
                     mode_edit
                   </mat-icon>
                 </a>
-                  <!--(click)="editPersonSwitch()-->
-<!--                <div class="" *ngIf = "editSwitch == true">-->
-<!--                      <app-edit-person></app-edit-person>-->
-<!--                </div>-->
               </button>
             </mat-card>
           </ul>

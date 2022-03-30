@@ -1,0 +1,13 @@
+.btn-home-add{
+  background-color: white;
+}
+.btn-modal{
+  margin-top: 5px;
+}
+.modal-close{
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-sub{
+  list-style: none;
+}

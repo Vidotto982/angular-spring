@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import  { PersonService } from "../services/person-service.service";
 import  { Person } from "../model/person";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -11,19 +11,34 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class AddPersonComponent implements OnInit {
   createdForm: FormGroup | any;
 
+ @Input() person: Person | undefined;
+  isEdit : boolean = false;
   constructor(private formBuilder: FormBuilder,
               private personService: PersonService) {}
 
   ngOnInit() {
     this.createdForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
-      country: ['', [Validators.required]
+      name: [this.person?.name ? this.person.name : '', [Validators.required]],
+      lastname: [this.person?.lastname ? this.person.lastname : '', [Validators.required]],
+      country: [this.person?.country ? this.person.country :  '', [Validators.required]
       ]
     })
   }
 
-  onSubmit() {
-    this.personService.addPerson(this.createdForm.getRawValue());
+  addPerson() {
+    this.personService.addPerson(this.createdForm.getRawValue()).subscribe();
   }
+  editPerson() {
+    if (this.person){
+    this.personService.editPerson(this.createdForm.getRawValue(), this.person.id).subscribe();
+    }
+  }
+
+  // closeEditModal() {
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     this.animal = result;
+  //   });
+  // }
+  closeModal: any;
 }

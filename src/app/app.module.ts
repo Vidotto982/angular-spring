@@ -14,6 +14,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { EditPersonComponent } from './edit-person/edit-person.component';
 import { RouterModule } from "@angular/router";
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 @NgModule({
@@ -33,9 +34,11 @@ import { RouterModule } from "@angular/router";
         BrowserAnimationsModule,
         MatCardModule,
         MatIconModule,
+        MatDialogModule,
         MatButtonModule,
         ReactiveFormsModule,
         RouterModule,
+
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,8 +29,6 @@ export class EditPersonComponent implements OnInit {
   onSubmit() {
     this.personService.editPerson(this.createdForm.getRawValue());
   }
- closeEditModal(){
-    this.personService.$editModal.emit(false);
- }
+
 
 }

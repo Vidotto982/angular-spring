@@ -2,34 +2,43 @@
   <div class="container">
     <div class="row">
       <div  class="formGroup">
-        <div>
-        <button mat-button class="btn mat-button" >
+        <div *ngIf="!isEdit">
+          <button mat-button class="btn mat-button btn-home-add" routerLink="/home">
             <mat-icon>
-          <a routerLink="/home" >
-            arrow_back
-          </a>
+              arrow_back
             </mat-icon>
-         </button>
+            Home
+          </button>
         </div>
-        <div class="col-md-6 offset-md-3">
-          <div [formGroup]="createdForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
+        <div class="modal-close" *ngIf="isEdit">
+          <button mat-button mat-dialog-close class="btn btn-primary btn-sm ml-auto btn-close-modal ">
+            <mat-icon>
+              highlight_off
+            </mat-icon>
+          </button>
+        </div>
+        <form [formGroup]="createdForm" (ngSubmit)="addPerson()">
+          <ul class="col-md-6 offset-md-3">
+            <li class="form-group">
               <label>First Name</label>
               <input type="text" formControlName="name" class="form-control" />
-            </div>
-            <div class="form-group">
+            </li>
+            <li class="form-group">
               <label>Last Name</label>
               <input type="text" formControlName="lastname" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label>country</label>
+            </li>
+            <li class="form-group">
+              <label>Country</label>
               <input type="text" formControlName="country" class="form-control" />
-            </div>
-            <div class="form-group">
-              <button class="btn btn-primary"  type="button" (click)="onSubmit()">Add a New Person</button>
-            </div>
-          </div>
-        </div>
+            </li>
+            <li class="form-group btn-sub" *ngIf="isEdit">
+              <button class="btn btn-primary btn-modal" type="button" (click)="editPerson()">Edit Person</button>
+            </li>
+            <li class="btn-sub" *ngIf="!isEdit">
+              <button class="btn btn-primary" type="button" (click)="addPerson()">Add New Person</button>
+            </li>
+          </ul>
+        </form>
       </div>
     </div>
   </div>
