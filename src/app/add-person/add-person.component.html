@@ -32,7 +32,7 @@
               <input type="text" formControlName="country" class="form-control" />
             </li>
             <li class="form-group btn-sub" *ngIf="isEdit">
-              <button class="btn btn-primary btn-modal" type="button" (click)="editPerson()">Edit Person</button>
+              <button class="btn btn-primary btn-modal" type="button" (click)="editPerson(); openSnackBar">Edit Person</button>
             </li>
             <li class="btn-sub" *ngIf="!isEdit">
               <button class="btn btn-primary" type="button" (click)="addPerson()">Add New Person</button>

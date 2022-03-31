@@ -46,7 +46,12 @@ export class HomeComponent implements OnInit {
         this.getPersons();
       }
     );
+  }
+
+  editEmit(emit: void){
 
   }
+
+
 }
 

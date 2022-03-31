@@ -1,8 +1,8 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import  { PersonService } from "../services/person-service.service";
 import  { Person } from "../model/person";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-
+import { MatSnackBar } from "@angular/material/snack-bar";
 @Component({
   selector: 'app-add-person',
   templateUrl: './add-person.component.html',
@@ -11,10 +11,13 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class AddPersonComponent implements OnInit {
   createdForm: FormGroup | any;
 
- @Input() person: Person | undefined;
+  @Input() person: Person | undefined;
   isEdit : boolean = false;
   constructor(private formBuilder: FormBuilder,
-              private personService: PersonService) {}
+              private personService: PersonService,
+              private snackBar: MatSnackBar)
+  {}
+  private message: string | undefined;
 
   ngOnInit() {
     this.createdForm = this.formBuilder.group({
@@ -24,21 +27,23 @@ export class AddPersonComponent implements OnInit {
       ]
     })
   }
-
   addPerson() {
     this.personService.addPerson(this.createdForm.getRawValue()).subscribe();
   }
+
   editPerson() {
     if (this.person){
-    this.personService.editPerson(this.createdForm.getRawValue(), this.person.id).subscribe();
+      this.personService.editPerson(this.createdForm.getRawValue(), this.person.id).subscribe();
+      this.message ="Person edited correctly";
+      this.openSnackBar(this.message);
+    }
+    if (!this.person) {
+      this.message= "Unable to edit person";
+      this.openSnackBar(this.message);
     }
   }
 
-  // closeEditModal() {
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.animal = result;
-  //   });
-  // }
-  closeModal: any;
+  openSnackBar(message : string): void {
+    this.snackBar.open(message);
+  }
 }

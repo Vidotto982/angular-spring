@@ -14,7 +14,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { RouterModule } from "@angular/router";
 import { MatDialogModule } from "@angular/material/dialog";
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,21 +23,22 @@ import { MatDialogModule } from "@angular/material/dialog";
     HomeComponent,
     AddPersonComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        MatMenuModule,
-        BrowserAnimationsModule,
-        MatCardModule,
-        MatIconModule,
-        MatDialogModule,
-        MatButtonModule,
-        ReactiveFormsModule,
-        RouterModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatSnackBarModule,
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -19,10 +19,6 @@ export class PersonService {
       headers: header
     })
   }
-  // getPersonById(personId: number): Observable<Person>{
-  //   const urlPerson = `${this.url}/${personId}`;
-  //   return this.http.get<Person>(urlPerson);
-  // }
 
   deletePerson(id: number):Observable<{}>{
     const urlPerson = `${this.url}/${id}`;
